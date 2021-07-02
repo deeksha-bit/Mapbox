@@ -6,15 +6,20 @@
  * @flow strict-local
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
 import MapboxGL from "@react-native-mapbox-gl/maps";
+import SplashScreen from "react-native-splash-screen";
 
 MapboxGL.setAccessToken(
   "pk.eyJ1IjoiZGVla3NoYW1laHRhMTI1IiwiYSI6ImNrcWV6OWE0bDBjcmMydXF1enZqMjd5MDMifQ.hFB7SI_kojKYfNQ42c62BA"
 );
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  });
+
   const [coordinates] = useState([78.9629, 20.5937]);
   const [route, setRoute] = useState({
     type: "FeatureCollection",
